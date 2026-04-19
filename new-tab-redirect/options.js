@@ -7,7 +7,7 @@ function showStatus(msg) {
 }
 
 // Load saved URL on open
-chrome.storage.sync.get("redirectUrl", ({ redirectUrl }) => {
+chrome.storage.local.get("redirectUrl", ({ redirectUrl }) => {
   if (redirectUrl) input.value = redirectUrl;
 });
 
@@ -31,13 +31,13 @@ document.getElementById("save-btn").addEventListener("click", () => {
     return;
   }
 
-  chrome.storage.sync.set({ redirectUrl: url }, () => {
+  chrome.storage.local.set({ redirectUrl: url }, () => {
     showStatus("Saved!");
   });
 });
 
 document.getElementById("clear-btn").addEventListener("click", () => {
-  chrome.storage.sync.remove("redirectUrl", () => {
+  chrome.storage.local.remove("redirectUrl", () => {
     input.value = "";
     showStatus("Cleared.");
   });
