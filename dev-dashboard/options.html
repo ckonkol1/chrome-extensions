@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline';">
+  <title>Dev Dashboard – Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>Dev Dashboard – Settings</h1>
+      <a href="dashboard.html" target="_blank" class="open-dashboard">Open Dashboard ↗</a>
+    </header>
+
+    <section class="card">
+      <h2>Sites</h2>
+      <p class="description">Add, reorder, or remove the sites shown on your dashboard.</p>
+
+      <ul id="site-list" class="site-list"></ul>
+
+      <form id="add-form" autocomplete="off">
+        <div class="form-row">
+          <input type="text" id="new-label" placeholder="Label (e.g. Jira)" maxlength="40" required />
+          <input type="url" id="new-url" placeholder="URL (e.g. https://your-org.atlassian.net)" required />
+          <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+        <p id="form-error" class="form-error" hidden></p>
+      </form>
+    </section>
+
+    <div id="status" class="status" hidden></div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
